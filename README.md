@@ -11,6 +11,10 @@ npm install
 ```bash
 npx sequelize db:migrate
 ```
+3. Seed data into the database
+```bash
+npx sequelize db:seed:all
+```
 
 ## Starting the app
 
@@ -33,6 +37,10 @@ parse csv
 paginate  
 filter  
 
+### Seed data
+The current seeder reads a csv file located below
+```
+sample_data/test.csv
+```
 
-### Specifics
-node v13.0.0
+If you plan to 
