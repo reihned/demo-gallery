@@ -1,12 +1,19 @@
 # demo-gallery
 basic demo gallery app
 
-## How to start
+## Setup
 
-First install dependencies 
-```
+1. First install dependencies 
+```bash
 npm install
 ```
+2. Migrate the db (note no creation due to sqlite3)
+```bash
+npx sequelize db:migrate
+```
+
+## Starting the app
+
 To run in development
 ```
 npm run dev
