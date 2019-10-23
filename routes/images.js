@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
-
 const db = require("../models");
 
+const Op = db.Sequelize.Op
 
 /* GET images listing. */
 router.get('/', async (req, res, next) => {
@@ -10,7 +10,7 @@ router.get('/', async (req, res, next) => {
     // TODO
 
     /* params */
-    let where;
+    let where = {};
     let { 
         minWidth, maxWidth,
         minHeight, maxHeight,
@@ -20,6 +20,21 @@ router.get('/', async (req, res, next) => {
     perPage = perPage || 5;
     const offset = (page - 1) * perPage;
     const limit = offset + perPage;
+
+    /* width filter */
+    if (minWidth && maxWidth) {
+        where.width = {
+            [Op.between]: [minWidth, maxWidth]
+        }
+    } else if (minWidth) {
+        where.width = {
+            [Op.gte]: minWidth
+        }
+    } else if (maxWidth)   {
+        where.width = {
+            [Op.lte]: maxWidth
+        }
+    }
 
     let response = {}, 
     result = {};
