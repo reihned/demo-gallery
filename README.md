@@ -23,6 +23,10 @@ To run in development
 npm run dev
 ```
 
+To monitor front end changes as well
+```
+npm run watch
+```
 
 ### Front End
 

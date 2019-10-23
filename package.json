@@ -4,7 +4,9 @@
   "private": true,
   "scripts": {
     "start": "node ./bin/www",
-    "dev": "NODE_ENV=development nodemon -e js,vue ./bin/www"
+    "dev": "NODE_ENV=development nodemon --ignore './public/javascripts' -e js,vue ./bin/www",
+    "watch": "npx webpack --watch",
+    "build": "rm ./public/javascripts/build.js && npx webpack"
   },
   "dependencies": {
     "@doweb/vuexpress": "^1.1.2",

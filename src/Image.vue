@@ -1,8 +1,6 @@
 <template>
-    <div>
-        <p>\{{ msg }}</p>
-        <div id="gallery">
-        </div>
+    <div class="image">
+        TEST
     </div>
 </template>
 
@@ -11,7 +9,7 @@ export default {
   name: 'app',
   data () {
     return {
-      msg: 'Welcome to demo-gallery'
+      msg: 'Welcome to Your Vue.js App'
     }
   }
 }
