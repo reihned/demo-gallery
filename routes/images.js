@@ -11,22 +11,28 @@ router.get('/', async (req, res, next) => {
 
     /* params */
     let where;
-    let { page, perPage } = req.query;
+    let { 
+        minWidth, maxWidth,
+        minHeight, maxHeight,
+        page, perPage, 
+    } = req.query;
     page = page || 1;
     perPage = perPage || 5;
     const offset = (page - 1) * perPage;
     const limit = offset + perPage;
 
-    /* retreive data */
     let response = {}, 
-        result = {};
+    result = {};
     try {
+        /* retreive data */
         response = await db.image.findAndCountAll({
             limit,
             offset,
             where: where, // conditions
         });
         result.data = response.rows;
+        
+        /* append page and count */
         result.totalCount = response.count;
         result.page = page;
         result.perPage = perPage;
@@ -35,7 +41,6 @@ router.get('/', async (req, res, next) => {
         console.error(error);
     }
 
-    /* append page and count */
 
     /* render */
     res.json(result);
