@@ -36,6 +36,21 @@ router.get('/', async (req, res, next) => {
         }
     }
 
+    /* height filter */
+    if (minHeight && maxHeight) {
+        where.height = {
+            [Op.between]: [minHeight, maxHeight]
+        }
+    } else if (minHeight) {
+        where.height = {
+            [Op.gte]: minHeight
+        }
+    } else if (maxHeight) {
+        where.height = {
+            [Op.lte]: maxHeight
+        }
+    }
+
     let response = {}, 
     result = {};
     try {
