@@ -10,6 +10,7 @@
           />
         </div>
         <div>
+          <button v-on:click="getImages()">Load More</button>
           <span>
             page: {{page}} 
           </span>
@@ -34,21 +35,30 @@ export default {
     return {
       msg: 'Welcome to demo-gallery',
       images: [],
-      page: 1,
+      page: 0,
+      nextPage: 1,
       perPage: 10,
       pages: 0,
       totalCount: 0,
     }
   },
-  async mounted () {
+  methods: {
+    async getImages(event) {
+      console.log("...loading more images");
+      let api_images_url = `api/images?page=${this.nextPage}&perPage=${this.perPage}`;
+      let response = await fetch(api_images_url);
+      let response_json = await response.json();
+      let new_images = response_json.data;
+      this.images = [...this.images, ...new_images];
+      this.totalCount = response_json.totalCount;
+      this.pages = Math.ceil(this.totalCount/this.perPage);
+      this.page = response_json.page;
+      this.nextPage = response_json.page + 1;
+    }
+  },
+  mounted () {
     /* get first load of images */
-    const self = this;
-    let api_images_url = `api/images?page=${self.page}&perPage=${self.perPage}`;
-    let response = await fetch(api_images_url);
-    let response_json = await response.json();
-    self.images = response_json.data;
-    self.totalCount = response_json.totalCount;
-    self.pages = Math.ceil(self.totalCount/self.perPage);
+    this.getImages();
   }
 }
 </script>

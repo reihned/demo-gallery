@@ -2,7 +2,10 @@
     <div class="image-component">
       <img :src="currentUrl" alt="image">
       <div class="image-controls">
-        <input type="checkbox" name="" v-model="grayscale" @change="toggleGreyscale">
+        <label :for="`image-${id}`">grayscale</label>
+        <input type="checkbox" :id="`image-${id}`" 
+          v-model="grayscale" 
+          @change="toggleGreyscale">
       </div>
     </div>
 </template>
