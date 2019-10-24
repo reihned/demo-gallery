@@ -1,15 +1,15 @@
 <template>
-    <div class="image">
-        TEST
+    <div>
+        {{test}}
     </div>
 </template>
 
 <script>
 export default {
-  name: 'app',
+  name: 'Image',
   data () {
     return {
-      msg: 'Welcome to Your Vue.js App'
+        test: "IMAGE"
     }
   }
 }
