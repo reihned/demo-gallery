@@ -35,11 +35,28 @@ response
 paginate  
 filter  
 
-### Back End
+### Back End API
 
-parse csv  
-paginate  
-filter  
+The back end API is available at
+```
+api/
+```
+To retrieve image data, the path would be 
+```
+api/images
+```
+To provide pagination, the GET parameters are 
+```
+page // which page, starting at 1
+perPage // how many results per page
+```
+so to retrieve the first ten results you'd need to hit
+```
+api/images?page=1&perPage=10
+```
+
+filtering
+
 
 ### Seed data
 The current seeder reads a csv file located below
