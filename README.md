@@ -47,4 +47,12 @@ The current seeder reads a csv file located below
 sample_data/test.csv
 ```
 
-If you plan to 
+If you plan to import your own data, please see the Image model at 
+```
+models/image.js
+```
+and seeder at 
+```
+seeders/20191022184705-test.js
+```
+to create your own custom seeder.
