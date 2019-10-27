@@ -7,10 +7,13 @@
 <script>
 export default {
   name: 'Filter',
-//   data () {
-//     return {
-//         test: "FILTER"
-//     }
-//   }
+  data () {
+    return {
+        minWidth: 0, 
+        maxWidth: 1000,
+        minHeight: 0, 
+        maxHeight: 1000,
+    }
+  }
 }
 </script>

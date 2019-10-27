@@ -15,11 +15,21 @@ router.get('/', async (req, res, next) => {
         minWidth, maxWidth,
         minHeight, maxHeight,
         page, perPage, 
+        offset, limit
     } = req.query;
-    page = parseInt(page) || 1;
-    perPage = parseInt(perPage) || 5;
-    const offset = (page - 1) * perPage;
-    const limit = perPage;
+
+    if (offset && limit) { // if both offset and limit
+        offset = parseInt(offset);
+        limit = parseInt(limit)
+    } else { 
+        page = parseInt(page) || 1;
+        perPage = parseInt(perPage) || 5;
+        
+        offset = (page - 1) * perPage;
+        limit = perPage;
+    }
+
+
 
     /* width filter */
     if (minWidth && maxWidth) {
