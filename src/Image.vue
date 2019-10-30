@@ -1,8 +1,11 @@
 <template>
     <div class="image-component">
-      <img :src="currentUrl" alt="image">
+      
       <div class="image-controls">
-        <label :for="`image-${id}`">grayscale</label>
+        <label :for="`image-${id}`">
+          <img :src="currentUrl" alt="image">
+          <span hidden>grayscale</span>
+        </label>
         <input type="checkbox" :id="`image-${id}`" 
           v-model="grayscale" 
           @change="toggleGreyscale">
@@ -41,7 +44,13 @@ export default {
 <style lang="css">
   .image-component {
     flex: 1 1;
-    margin: 0;
     flex-grow: 0;
+    margin: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+    transition: 0.3s;
+    padding: 5px;
+  }
+  .image-component:hover {
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
   }
 </style>

@@ -1,7 +1,8 @@
 <template>
     <div>
         <p>{{ msg }}</p>
-        <div id="filter">
+        <details id="filter" closed>
+          <summary>Filter</summary>
           <div>
             <h4>Width</h4>
             <label>min</label>
@@ -17,7 +18,7 @@
             <input type="number" name="maxHeight" id="maxHeight" v-model="maxHeight">
           </div>
           <button v-on:click="reloadImages()">Apply Filter</button>
-        </div>
+        </details>
         <div id="gallery">
           <image-component 
             v-for="image in images" 
@@ -100,6 +101,9 @@ export default {
 </script>
 
 <style lang="css">
+div {
+  margin: 5px;
+}
 #gallery {
   display: flex;
   flex-flow: row wrap;
@@ -107,6 +111,10 @@ export default {
   justify-content: flex-start;
   align-items: flex-start;
   align-content: flex-start;
+}
+#filter {
+  margin: 5px;
+  padding: 5px;
 }
 
 </style>
