@@ -33,14 +33,25 @@ To run in production
 npm start
 ```
 
-Please note that ideally the javascript files in `/public` should be served by something like nginx
+Please note that ideally the javascript files in `public/` should be served by something like nginx
 
 ### Front End
 
-show images  
-response  
-paginate  
-filter  
+The front end currently utilizes vue compiled via webpack.
+
+The webpack config is
+```
+wepack.config.js
+```
+
+All source files are within the `src` folder  and are compiled to `public/build.js`  
+
+To rebuild `public/build.js` please run the following command
+```bash
+npm run build
+```
+
+
 
 ### Back End API
 
