@@ -33,7 +33,10 @@ To run in production
 npm start
 ```
 
-Please note that ideally the javascript files in `public/` should be served by something like nginx
+From there the front end should be available at http://localhost:3000/
+
+
+Please note that for production ideally the javascript files in `public/` should be served by nginx or similar
 
 ### Front End
 
