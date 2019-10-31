@@ -28,6 +28,13 @@ To monitor front end changes as well
 npm run watch
 ```
 
+To run in production
+```
+npm start
+```
+
+Please note that ideally the javascript files in `/public` should be served by something like nginx
+
 ### Front End
 
 show images  
@@ -37,22 +44,18 @@ filter
 
 ### Back End API
 
-The back end API is available at
-```
-api/
-```
 To retrieve image data, the path would be 
 ```
 api/images
 ```
 To provide pagination, the GET parameters are 
 ```
-page // which page, starting at 1
-perPage // how many results per page
+offset // which image to start after
+limit // how many results to retrieve
 ```
 so to retrieve the first ten results you'd need to hit
 ```
-api/images?page=1&perPage=10
+api/images?offset=0&limit=10
 ```
 
 filtering
@@ -72,4 +75,8 @@ and seeder at
 ```
 seeders/20191022184705-test.js
 ```
-to create your own custom seeder.
+to create your own custom image seeder.
+```
+npx sequelize-cli seed:generate --name images2
+```
+where images2 is the name of the seeder.
