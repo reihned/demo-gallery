@@ -67,12 +67,26 @@ To provide pagination, the GET parameters are
 offset // which image to start after
 limit // how many results to retrieve
 ```
-so to retrieve the first ten results you'd need to hit
+They should be added as standard GET search params  
+For example to retrieve the first ten results you'd need to hit
 ```
 api/images?offset=0&limit=10
 ```
+Note that there is a default offset of 0 and limit of 5
 
-filtering
+Filtering params for images are as follows
+```
+minWidth // minimum width
+maxWidth // maximum width
+minHeight // minimum height
+maxHeight // maximum height
+```
+
+They should be added as standard GET search params  
+for example:
+```
+api/images?minWidth=200&maxWidth=400
+```
 
 
 ### Seed data
