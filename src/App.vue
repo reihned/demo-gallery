@@ -116,5 +116,16 @@ div {
   margin: 5px;
   padding: 5px;
 }
+button {
+  text-transform: none;
+  text-decoration: none;
+  padding: .25em;
+  background-color:  white;
+  border: 1px solid rgb(75, 75, 75);
+  border-radius: 3px;
+  color: black;
+  box-shadow: 0 2px 4px 0 rgba(0,0,0,0.2);
+  transition: 0.3s;
+}
 
 </style>
